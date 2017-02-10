@@ -19,14 +19,14 @@
                 {
                     "skip": false,
                     "type": "fill",
-                    "fill_content": "1969769322@qq.com",
+                    "fill_content": "your-email@example.com",
                     "identifier_type": "id",
                     "identifier": "account"
                 },
                 {
                     "skip": false,
                     "type": "fill",
-                    "fill_content": "jyx135135",
+                    "fill_content": "your_password",
                     "identifier_type": "id",
                     "identifier": "pw"
                 },
