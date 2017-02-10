@@ -1,0 +1,52 @@
+{ 
+    "config": {
+        "wait_timeout": 1000,
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/602.4.8 (KHTML, like Gecko) Version/10.0.3 Safari/602.4.8"
+    },
+    "routine_list":[
+        {
+            "init_url": "http://xiami.com/",
+            "skip": false,
+            "actions":[
+                {
+                    "skip": false,
+                    "type": "click",
+                    "identifier_type": "class",
+                    "offset": 1,
+                    "identifier": "login",
+                    "triggers_jump": true                   
+                },
+                {
+                    "skip": false,
+                    "type": "fill",
+                    "fill_content": "1969769322@qq.com",
+                    "identifier_type": "id",
+                    "identifier": "account"
+                },
+                {
+                    "skip": false,
+                    "type": "fill",
+                    "fill_content": "jyx135135",
+                    "identifier_type": "id",
+                    "identifier": "pw"
+                },
+                {
+                    "skip": false,
+                    "type": "click",
+                    "identifier_type": "id",
+                    "identifier": "submit",
+                    "triggers_jump": true
+
+                },
+                {
+                    "skip": false,
+                    "type": "click",
+                    "identifier_type": "class",
+                    "offset": 0,
+                    "identifier": "icon tosign",
+                    "triggers_jump":false
+                }
+            ]
+        }
+    ]
+}
