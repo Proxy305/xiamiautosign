@@ -30,6 +30,10 @@ Browse to the repo folder in terminal, then:
 
     phantomjs sign.js
 
+If you'd like to use config file other than `config.json`, then:
+
+    phantomjs sign.js path/to/config.json
+
 ## Configuration Guide
 
 If you wish to compose your own workflow via altering `config.json`, please see wiki for guidance.
@@ -38,5 +42,7 @@ If you wish to compose your own workflow via altering `config.json`, please see 
 
 - For debug purpose, XiamiAutoSign might render some photos of the page it is handling.
 
+## Disclaimer
 
+XiamiAutoSign comes with no warranty. Using XiamiAutoSign means that you are fully informed of the possible risks and consequences, and are willing to take all corresonding responisibilities. 
 

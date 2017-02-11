@@ -11,8 +11,29 @@ window.console.debugLog = function(message){
 
 // Read config file
 
-var fs = require('fs');
-var configFile = fs.open('config.json', 'r');
+var fs = require('fs'),
+    system = require('system');
+var args = system.args;
+var pathToConfig = 'config.json';
+if(args.length === 2){
+    pathToConfig = args[1];
+}
+try{
+    var configFile = fs.open(pathToConfig, 'r');
+}
+catch(err){
+    console.log(err);
+    console.log("Try to load 'config.json'.");
+    try{
+        var configFile = fs.open('config.json', 'r');
+    }
+    catch(err){
+        console.log(err);
+        console.log("No config found. Exiting PhantomJS.")
+        phantom.exit();
+    }
+}
+
 
 // Initialization
 
@@ -148,7 +169,6 @@ function doAction(routineCount, actionCount, jumped){
             console.log('Jump status:' + status);
             page.render("action" + actionCount + ".png");
             page.onLoadFinished = undefined;    // Clean up event binding
-            console.debugLog("1: " + routineCountNext + "; 2: " + actionCountNext);
             doAction(routineCountNext, actionCountNext, false);
         }
         console.debugLog("OLF set.");
@@ -159,4 +179,4 @@ function doAction(routineCount, actionCount, jumped){
 
 }
 
-doAction(0, 0, false);
+doAction(0, 0, false);  // Triggers execution loop
