@@ -151,11 +151,18 @@ function doAction(routineCount, actionCount, jumped){
 
         }
         else{   // If current routine is the last routine
-            console.log("All routes finished. PhantomJS will exit after 1 second.")
+            console.log("All routes finished. PhantomJS will exit after" + config.wait_timeout + " ms.")
+
+            // When all actions are done, setTimeOut() to give AJAX some time, then preform exit tasks
             setTimeout(function(){
-                page.render("exit.png");
-                phantom.exit();  // Safely exit PhantomJS
-            }, 1000);
+
+                // Exit tasks
+                fs.write('cookies.txt', JSON.stringify(phantom.cookies), 'w');  // Write cookies to file
+                page.render("exit.png");    //Render a final image of the page
+
+                // When exit tasks are done, safely exit PhantomJS
+                phantom.exit();
+            }, config.wait_timeout);
             return;
             
         }
