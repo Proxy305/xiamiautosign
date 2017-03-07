@@ -1,6 +1,10 @@
 # XiamiAutoSign
 Automatically daily sign for xiami.com via PhantomJS
 
+## Change log
+
+- v0.0.3: Added feature: random delay execution
+
 ## Description
 
 Xiami.com is a Chinese online music service. You can listen to online music for free on xiami.com, but when it comes to download, it is not free. However, you can collect points, which can be used to download songs, by commiting "daily signs", which means visit xiami.com, log in and click the "SIGN" button. You can sign once per day. After you have signed, the "SIGN" button will remain unclickable in the rest of the day. Once you have signed for a sequencial 7 days, one point will be given. And the longer the sequence is, the more points you get.Since it's so easy to forget to sign, which voids the sequence and the efforts,it will be better to make this automatic. 

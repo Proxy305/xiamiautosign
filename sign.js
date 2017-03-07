@@ -91,7 +91,9 @@ function doAction(routineCount, actionCount, jumped){
                         }
                         else{
                             console.log("Successfully opened destinaton page. Now try to execute actions.");
-                            doAction(routineCount, actionCount, true);  // When the page is loaded, use jump = true to tell that the page has been loaded, just go ahead for the action
+                            delay = Math.floor(Math.random() * routineList[routineCount].delay_execute_range);
+                            console.debugLog("Delay: " + delay);
+                            setTimeout(function(){doAction(routineCount, actionCount, true)}, delay);  // When the page is loaded, use jump = true to tell that the page has been loaded, just go ahead for the action
                         }
                     });
                     return;
@@ -175,7 +177,7 @@ function doAction(routineCount, actionCount, jumped){
         page.onLoadFinished = function(status){
             console.log('Jump status:' + status);
             page.render("action" + actionCount + ".png");
-            page.onLoadFinished = undefined;    // Clean up event binding
+            page.onLoadFinished = undefined;    // Clean up event binding for next binding
             doAction(routineCountNext, actionCountNext, false);
         }
         console.debugLog("OLF set.");

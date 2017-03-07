@@ -7,6 +7,7 @@
         {
             "init_url": "http://xiami.com/",
             "skip": false,
+            "delay_execute_range": 10000,
             "actions":[
                 {
                     "skip": false,
