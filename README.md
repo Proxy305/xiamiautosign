@@ -3,7 +3,7 @@ Automatically daily sign for xiami.com via PhantomJS
 
 ## Change log
 
-- v0.0.3: Added feature: random delay execution
+- v0.0.4: Debug output and debug render is now disabled.
 
 ## Description
 
@@ -44,7 +44,7 @@ If you wish to compose your own workflow via altering `config.json`, please see 
 
 ## Known issues
 
-- For debug purpose, XiamiAutoSign might render some photos of the page it is handling.
+- In rare cases, xiamiautosign might fail. If you are using `cron`, please set multiple `cronjob`s for xiamiautosign, so it has the chance to retry.
 
 ## Disclaimer
 

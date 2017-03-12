@@ -2,7 +2,7 @@
 // This script enables you to click the sign button of xiami.com automatically via PhantomJS.
 
 // Debug Flags
-var flags = true;
+var flags = false;
 window.console.debugLog = function(message){
     if(flags){
         console.log(message);
@@ -123,7 +123,10 @@ function doAction(routineCount, actionCount, jumped){
             }
         
         }, action);
-        page.render("snap.png");
+        if(flags){
+            page.render("snap.png");
+        }
+        
 
 
     }
@@ -160,8 +163,9 @@ function doAction(routineCount, actionCount, jumped){
 
                 // Exit tasks
                 fs.write('cookies.txt', JSON.stringify(phantom.cookies), 'w');  // Write cookies to file
-                page.render("exit.png");    //Render a final image of the page
-
+                if(flags){
+                    page.render("exit.png");    //Render a final image of the page
+                }
                 // When exit tasks are done, safely exit PhantomJS
                 phantom.exit();
             }, config.wait_timeout);
@@ -173,14 +177,16 @@ function doAction(routineCount, actionCount, jumped){
     // Triggers next action execution
 
     if(routineList[routineCount].actions[actionCount].triggers_jump === true && routineList[routineCount].actions[actionCount].skip === false){
-        console.log("Encountered action that will cause page jump.");
+        console.debugLog("Encountered action that will cause page jump.");
         page.onLoadFinished = function(status){
-            console.log('Jump status:' + status);
-            page.render("action" + actionCount + ".png");
+            console.debugLog('Jump status:' + status);
+            if(flags){
+                page.render("action" + actionCount + ".png");
+            }        
             page.onLoadFinished = undefined;    // Clean up event binding for next binding
             doAction(routineCountNext, actionCountNext, false);
         }
-        console.debugLog("OLF set.");
+        console.debugLog("OnLoadFinished event handler set.");
     }
     else{
         doAction(routineCountNext, actionCountNext, false);
