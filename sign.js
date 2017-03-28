@@ -15,8 +15,14 @@ var fs = require('fs'),
     system = require('system');
 var args = system.args;
 var pathToConfig = 'config.json';
-if(args.length === 2){
+if (args.length === 2){
     pathToConfig = args[1];
+}
+if(args.length === 3){
+    pathToConfig = args[2];
+    if(args[1] === '-v'){
+        flags = true;
+    }
 }
 try{
     var configFile = fs.open(pathToConfig, 'r');

@@ -3,7 +3,7 @@ Automatically daily sign for xiami.com via PhantomJS
 
 ## Change log
 
-- v0.0.4: Debug output and debug render is now disabled.
+- v0.0.5: Added verbose mode. Use "-v" to enable debug output and rendering.
 
 ## Description
 
